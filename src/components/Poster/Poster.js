@@ -1,8 +1,8 @@
 import React from "react";
 
-const Poster = () => {
+const Poster = ({title}) => {
   return (
-    <h1>This is a poster</h1>
+    <h1>{title}</h1>
   )
 }
 

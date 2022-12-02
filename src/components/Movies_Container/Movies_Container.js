@@ -15,10 +15,14 @@ class MoviesContainer extends Component {
 
   render() {
 
-    const moviePosters = []
+    const moviePosters = this.props.movies
+      .map(movie => {
+        return <Poster title={movie.title}/>
+      });
+
 
     return (
-      <h1><Poster /></h1>
+      <h1>{moviePosters}</h1>
     )
   }
 }
