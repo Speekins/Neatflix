@@ -8,19 +8,14 @@ class MoviesContainer extends Component {
   constructor() {
     super();
     this.state = {
-      selectedMovie: {
-        "id": 694919,
-        "poster_path": "https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",
-        "backdrop_path": "https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg",
-        "title": "Money Plane",
-        "average_rating": 6.666666666666667,
-        "release_date": "2020-09-29"
-      }
+      selectedMovie: ''
     }
   }
 
   showMovie = (event) => {
-    this.setState({})
+    let id = event.target.parentNode.id
+    let movie = this.props.movies.find(movie => movie.id = id)
+    this.setState({selectedMovie: movie})
   }
 
   exitMovie = (event) => {
@@ -35,6 +30,7 @@ class MoviesContainer extends Component {
           poster={movie.poster_path}
           id={movie.id}
           showMovie={this.showMovie}
+          // key={movie.id}
           />
       });
 
