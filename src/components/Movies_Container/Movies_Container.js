@@ -34,12 +34,17 @@ class MoviesContainer extends Component {
           title={movie.title}
           poster={movie.poster_path}
           id={movie.id}
+          showMovie={this.showMovie}
           />
       });
 
     return (
       <>
-        {this.state.selectedMovie && <MovieDetail movie={this.state.selectedMovie}/>}
+        {this.state.selectedMovie && <MovieDetail 
+          movie={this.state.selectedMovie}
+          exitMovie={this.exitMovie}
+          />
+        }
         {!this.state.selectedMovie && <div>{moviePosters}</div>}
       </>
     )
