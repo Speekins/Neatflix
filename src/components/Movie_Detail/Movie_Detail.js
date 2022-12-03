@@ -5,6 +5,7 @@ const MovieDetail = ({movie, exitMovie}) => {
   return (
     <>
       <p>{movie.id}</p>
+      <button onClick={() => exitMovie()}></button>
     </>
   )
 }

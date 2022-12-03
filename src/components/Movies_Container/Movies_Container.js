@@ -18,8 +18,8 @@ class MoviesContainer extends Component {
     this.setState({selectedMovie: movie})
   }
 
-  exitMovie = (event) => {
-    this.setState({})
+  exitMovie = () => {
+    this.setState({ selectedMovie: '' })
   }
 
   render() {
@@ -30,7 +30,7 @@ class MoviesContainer extends Component {
           poster={movie.poster_path}
           id={movie.id}
           showMovie={this.showMovie}
-          // key={movie.id}
+          key={movie.id}
           />
       });
 
