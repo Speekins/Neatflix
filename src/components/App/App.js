@@ -15,14 +15,16 @@ class App extends Component {
 
   componentDidMount() {
     fetchData('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
-    .then((data) => this.setState({ allMovies: data.movies, error: '' }))
+    .then((data) => this.setState({ allMovies: data.movies }))
+    .catch(error => this.setState({ error: error}))
   }
 
   render(){
     return (
       <div>
         <h1>test</h1>
-        {this.state.error && <h2>Something went wrong!</h2>}
+        {console.log(this.state.error)}
+        {this.state.error && <h2>Something went wrong! {this.state.error.message}</h2>}
         <MoviesContainer movies={this.state.allMovies}/>
       </div>
     )
