@@ -3,6 +3,8 @@ import './App.css';
 import fetchData from '../../apiCalls';
 import React, { Component } from 'react';
 import MoviesContainer from '../Movies_Container/Movies_Container';
+import './App.css'
+import img from '../../Neatflix_Logos/2.png'
 
 class App extends Component {
   constructor(){
@@ -21,12 +23,13 @@ class App extends Component {
 
   render(){
     return (
-      <div>
-        <h1>test</h1>
-        {console.log(this.state.error)}
+      <main className='content'>
+        <header>
+          <img src={img} alt="neatflix logo" className='neatflix-logo'></img>
+        </header>
         {this.state.error && <h2>Something went wrong! {this.state.error.message}</h2>}
         <MoviesContainer movies={this.state.allMovies}/>
-      </div>
+      </main>
     )
   }
 
