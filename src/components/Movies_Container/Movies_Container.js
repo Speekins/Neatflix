@@ -9,18 +9,19 @@ class MoviesContainer extends Component {
   constructor() {
     super();
     this.state = {
-      selectedMovie: ''
+      selectedMovie: '',
+      selectedMovieVideos: ''
     }
   }
 
   showMovie = (event) => {
-    let id = event.target.parentNode.id
-    let movie = this.props.movies.find(movie => movie.id = id)
+    let id = +event.target.parentNode.id
+    let movie = this.props.movies.find(movie => movie.id === id)
     this.setState({selectedMovie: movie})
   }
 
   exitMovie = () => {
-    this.setState({ selectedMovie: '' })
+    this.setState({ selectedMovie: '', selectedMovieVideos: '' })
   }
 
   render() {
@@ -32,7 +33,7 @@ class MoviesContainer extends Component {
           id={movie.id}
           showMovie={this.showMovie}
           key={movie.id}
-          />
+        />
       });
 
     return (
