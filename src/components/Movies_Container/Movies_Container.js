@@ -11,7 +11,8 @@ class MoviesContainer extends Component {
     super();
     this.state = {
       selectedMovie: '',
-      selectedMovieVideos: ''
+      selectedMovieVideos: '',
+      error: ''
     }
   }
 
@@ -25,6 +26,7 @@ class MoviesContainer extends Component {
       .then(data => {
         this.setState({ selectedMovie: data[0].movie, selectedMovieVideos: data[1].videos })
       })
+      .catch(error => this.setState({ error: error }))
   }
 
   exitMovie = () => {
@@ -50,7 +52,8 @@ class MoviesContainer extends Component {
           exitMovie={this.exitMovie}
           />
         }
-        {!this.state.selectedMovie && <div className="movie-posters">{moviePosters}</div>}
+        {(!this.state.selectedMovie && !this.state.error) && <div className="movie-posters">{moviePosters}</div>}
+        {this.state.error && <h2>Something went wrong! {this.state.error.message}</h2>}
       </>
     )
   }
