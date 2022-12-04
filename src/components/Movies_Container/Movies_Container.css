@@ -1,3 +1,7 @@
+.movies-container {
+  width: 100%;
+}
+
 .movie-posters {
   margin: auto;
   width: 95%;

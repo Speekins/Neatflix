@@ -28,7 +28,7 @@ class App extends Component {
           <img src={img} alt="neatflix logo" className='neatflix-logo'></img>
         </header>
         {this.state.error && <h2>Something went wrong! {this.state.error.message}</h2>}
-        <MoviesContainer movies={this.state.allMovies}/>
+        <MoviesContainer className='movies-contaier' movies={this.state.allMovies}/>
       </main>
     )
   }
