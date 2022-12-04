@@ -3,24 +3,34 @@ import App from "../App/App";
 import Poster from "../Poster/Poster";
 import MovieDetail from "../Movie_Detail/Movie_Detail";
 import './Movies_Container.css'
+import fetchData from "../../apiCalls";
 
 
 class MoviesContainer extends Component {
   constructor() {
     super();
     this.state = {
-      selectedMovie: ''
+      selectedMovie: '',
+      selectedMovieVideos: '',
+      error: ''
     }
   }
 
   showMovie = (event) => {
-    let id = event.target.parentNode.id
-    let movie = this.props.movies.find(movie => movie.id = id)
-    this.setState({selectedMovie: movie})
+    let id = +event.target.parentNode.id
+
+    Promise.all([
+      fetchData(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`),
+      fetchData(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}/videos`)
+    ])
+      .then(data => {
+        this.setState({ selectedMovie: data[0].movie, selectedMovieVideos: data[1].videos })
+      })
+      .catch(error => this.setState({ error: error }))
   }
 
   exitMovie = () => {
-    this.setState({ selectedMovie: '' })
+    this.setState({ selectedMovie: '', selectedMovieVideos: '' })
   }
 
   render() {
@@ -32,7 +42,7 @@ class MoviesContainer extends Component {
           id={movie.id}
           showMovie={this.showMovie}
           key={movie.id}
-          />
+        />
       });
 
     return (
@@ -42,7 +52,8 @@ class MoviesContainer extends Component {
           exitMovie={this.exitMovie}
           />
         }
-        {!this.state.selectedMovie && <div className="movie-posters">{moviePosters}</div>}
+        {(!this.state.selectedMovie && !this.state.error) && <div className="movie-posters">{moviePosters}</div>}
+        {this.state.error && <h2>Something went wrong! {this.state.error.message}</h2>}
       </>
     )
   }
