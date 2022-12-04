@@ -10,7 +10,13 @@ const MovieDetail = ({ movie, exitMovie }) => {
       <img src={movie.poster_path} alt={`poster for ${movie.title}`} className='poster-detail'></img>
       <div className="details">
         <p>Title: {movie.title}</p>
+        {!!movie.tagline && <p>{movie.tagline}</p>}
         <p>Rating: {movie.average_rating.toFixed(1)}</p>
+        <p>Release Date: {movie.release_date}</p>
+        {!!movie.budget && <p>Budget: {movie.budget}</p>}
+        {!!movie.revenue && <p>Revenue: {movie.revenue}</p>}
+        <p>Runtime: {movie.runtime} minutes</p>
+        <p>Overview: {movie.overview}</p>
         <button onClick={() => exitMovie()}>Return</button>
       </div>
     </div>
