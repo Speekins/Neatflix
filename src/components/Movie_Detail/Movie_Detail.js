@@ -4,8 +4,8 @@ import './Movie_Detail.css'
 const MovieDetail = ({ movie, videos, exitMovie }) => {
 
   const background = { backgroundImage: `url(${movie.backdrop_path})` }
-  const trailer = `www.youtube.com/watch?v=${videos[0]['key']}`
-  console.log(videos[0])
+  const trailer = `https://www.youtube.com/watch?v=${videos[0].key}`
+  console.log(videos[0].key)
   return (
     <div className="movie-detail" style={background}>
       <img src={movie.poster_path} alt={`poster for ${movie.title}`} className='poster-detail'></img>
