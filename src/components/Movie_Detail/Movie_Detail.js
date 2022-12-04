@@ -1,10 +1,11 @@
 import React from "react"
 import './Movie_Detail.css'
 
-const MovieDetail = ({ movie, exitMovie }) => {
+const MovieDetail = ({ movie, videos, exitMovie }) => {
 
   const background = { backgroundImage: `url(${movie.backdrop_path})` }
-
+  const trailer = `www.youtube.com/watch?v=${videos[0]['key']}`
+  console.log(videos[0])
   return (
     <div className="movie-detail" style={background}>
       <img src={movie.poster_path} alt={`poster for ${movie.title}`} className='poster-detail'></img>
@@ -17,6 +18,7 @@ const MovieDetail = ({ movie, exitMovie }) => {
         {!!movie.revenue && <p>Revenue: {movie.revenue}</p>}
         <p>Runtime: {movie.runtime} minutes</p>
         <p>Overview: {movie.overview}</p>
+        <p>Watch the <a href={trailer} target="_blank" rel="noreferrer">trailer</a>!</p>
         <button onClick={() => exitMovie()}>Return</button>
       </div>
     </div>

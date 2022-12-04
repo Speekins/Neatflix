@@ -27,10 +27,6 @@ class MoviesContainer extends Component {
         this.setState({ selectedMovie: data[0].movie, selectedMovieVideos: data[1].videos })
       })
       .catch(error => this.setState({ error: error }))
-
-    let movie = this.props.movies.find(movie => movie.id === id)
-    console.log(movie)
-    this.setState({selectedMovie: movie})
   }
 
   exitMovie = () => {
@@ -53,6 +49,7 @@ class MoviesContainer extends Component {
       <>
         {this.state.selectedMovie && <MovieDetail 
           movie={this.state.selectedMovie}
+          videos={this.state.selectedMovieVideos}
           exitMovie={this.exitMovie}
           />
         }
