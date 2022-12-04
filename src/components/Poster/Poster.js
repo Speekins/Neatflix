@@ -3,9 +3,12 @@ import './Poster.css'
 
 const Poster = ({ title, poster, id, showMovie }) => {
   return (
-    <div id={id}>
-      <div onClick={(event) => showMovie(event)}>
-      </div>
+    <div id={id} className='poster-container'>
+      <img 
+        className='poster'
+        onClick={(event) => showMovie(event)}
+        src={poster}
+      />
       <p onClick={(event) => showMovie(event)}>{title}</p>
     </div>
   )
