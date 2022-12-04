@@ -1,0 +1,15 @@
+.poster-container {
+  width: 275px;
+  height: 475px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.poster {
+  width: 275px;
+  height: 412.5px;
+}
+

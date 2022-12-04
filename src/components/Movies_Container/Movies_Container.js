@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import App from "../App/App";
 import Poster from "../Poster/Poster";
 import MovieDetail from "../Movie_Detail/Movie_Detail";
+import './Movies_Container.css'
 
 
 class MoviesContainer extends Component {
@@ -41,7 +42,7 @@ class MoviesContainer extends Component {
           exitMovie={this.exitMovie}
           />
         }
-        {!this.state.selectedMovie && <div>{moviePosters}</div>}
+        {!this.state.selectedMovie && <div className="movie-posters">{moviePosters}</div>}
       </>
     )
   }
