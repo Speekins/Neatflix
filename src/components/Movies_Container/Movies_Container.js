@@ -17,7 +17,6 @@ class MoviesContainer extends Component {
   }
 
   showMovie = (event) => {
-<<<<<<< Updated upstream
     let id = +event.target.parentNode.id
 
     Promise.all([
@@ -28,13 +27,10 @@ class MoviesContainer extends Component {
         this.setState({ selectedMovie: data[0].movie, selectedMovieVideos: data[1].videos })
       })
       .catch(error => this.setState({ error: error }))
-=======
-    let id = event.target.parentNode.id
-    console.log(typeof id)
-    let movie = this.props.movies.find(movie => movie.id === Number(id))
+
+    let movie = this.props.movies.find(movie => movie.id === id)
     console.log(movie)
     this.setState({selectedMovie: movie})
->>>>>>> Stashed changes
   }
 
   exitMovie = () => {
