@@ -7,10 +7,10 @@ const MovieDetail = ({ movie, exitMovie }) => {
 
   return (
     <div className="movie-detail" style={background}>
-      <img src={movie.poster_path} alt={`poster for ${movie.title}`} className='poster'></img>
+      <img src={movie.poster_path} alt={`poster for ${movie.title}`} className='poster-detail'></img>
       <div className="details">
         <p>Title: {movie.title}</p>
-        <p>Rating: {movie.average_rating}</p>
+        <p>Rating: {movie.average_rating.toFixed(1)}</p>
         <button onClick={() => exitMovie()}>Return</button>
       </div>
     </div>
