@@ -3,6 +3,7 @@ import App from "../App/App";
 import Poster from "../Poster/Poster";
 import MovieDetail from "../Movie_Detail/Movie_Detail";
 import './Movies_Container.css'
+import fetchData from "../../apiCalls";
 
 
 class MoviesContainer extends Component {
@@ -16,8 +17,14 @@ class MoviesContainer extends Component {
 
   showMovie = (event) => {
     let id = +event.target.parentNode.id
-    let movie = this.props.movies.find(movie => movie.id === id)
-    this.setState({selectedMovie: movie})
+
+    Promise.all([
+      fetchData(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`),
+      fetchData(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}/videos`)
+    ])
+      .then(data => {
+        this.setState({ selectedMovie: data[0].movie, selectedMovieVideos: data[1].videos })
+      })
   }
 
   exitMovie = () => {
