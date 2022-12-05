@@ -49,6 +49,7 @@ class MoviesContainer extends Component {
       <>
         {this.state.selectedMovie && <MovieDetail 
           movie={this.state.selectedMovie}
+          videos={this.state.selectedMovieVideos}
           exitMovie={this.exitMovie}
           />
         }

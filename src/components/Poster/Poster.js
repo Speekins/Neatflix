@@ -9,7 +9,7 @@ const Poster = ({ title, poster, id, showMovie }) => {
         onClick={(event) => showMovie(event)}
         src={poster}
       />
-      <p onClick={(event) => showMovie(event)}>{title}</p>
+      <p onClick={(event) => showMovie(event)} className='poster-title'>{title}</p>
     </div>
   )
 }
