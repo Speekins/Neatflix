@@ -1,4 +1,4 @@
-describe('Specific movie detail', () => {
+describe('Specific Movie Detail', () => {
 
   beforeEach(() => {
     cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
@@ -44,9 +44,49 @@ describe('Specific movie detail', () => {
   });
 
   it('Should have a link to the trailer', () => {
-    cy.contains('Runtime: 82 minutes')
+    cy.get('a[href="https://www.youtube.com/watch?v=aETz_dRDEys"]')
   });
 
+  it('The background should be an image from the movie', () => {
+    cy.get('.movie-detail')
+    .should('have.css', 'background-image', 'url("https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg")')
+  });
 
+  it('Should show the movie poster', () => {
+    cy.get('.poster-detail')
+    .should('have.attr', 'src')
+    .should('equal', 'https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg')
+  });
 
+  it('Should have a button that takes you back to the main view', () => {
+    cy.get('button')
+      // .click()
+      // can have a test here that shows that, once we've employed Router, the url is the main view
+  });
+
+})
+
+describe('Error Handling Movie Detail Page', () => {
+
+  beforeEach(() => {
+    cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
+      method: 'GET',
+      fixture: '../fixtures/movies-sample-data.json'
+    });
+    cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', {
+      method: 'GET',
+      fixture: ''
+    });
+    cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919/videos', {
+      method: 'GET',
+      fixture: ''
+    });
+    cy.visit('http://localhost:3000');
+    cy.get('#694919')
+      .click()
+  })
+
+  it('Should show an error message if something goes wrong with the fetch call to get specific movie data', () => {
+    cy.contains('Something went wrong!')
+  })
 })
