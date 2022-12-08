@@ -6,6 +6,7 @@ import './Movies_Container.css'
 import fetchData from "../../apiCalls";
 
 
+
 class MoviesContainer extends Component {
   constructor() {
     super();
