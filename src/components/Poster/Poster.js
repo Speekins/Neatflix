@@ -1,6 +1,6 @@
 import React from "react"
 import './Poster.css'
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 const Poster = ({ title, poster, id, selectMovie }) => {
   return (

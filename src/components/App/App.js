@@ -14,7 +14,7 @@ import '../Movie_Detail/Movie_Detail.css'
 
 class App extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       allMovies: [],
       error: null

@@ -5,7 +5,7 @@ import fetchData from "../../apiCalls"
 
 class MovieDetail extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       selectedMovie: '',
       selectedMovieVideos: '',

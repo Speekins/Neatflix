@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import App from "../App/App";
 import Poster from "../Poster/Poster";
 import MovieDetail from "../Movie_Detail/Movie_Detail";

@@ -59,6 +59,6 @@ describe('Errors', () => {
 
     cy.visit('http://localhost:3000')
 
-    cy.contains(errMsg).should('be.visible')
+    cy.contains(errMsg).should('be.visible');
   })
 })
