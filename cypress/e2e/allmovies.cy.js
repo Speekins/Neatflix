@@ -46,3 +46,19 @@ describe('All movies container flows', () => {
   })
 
 })
+
+describe('Errors', () => {
+  let errMsg = 'There are no movies to show!'
+
+  it('Should inform the user if there is a problem', () => {
+    cy.intercept(
+      'GET',
+      'https://rancid-tomatillos.herokuapp.com/api/v2/movies',
+      { forceNetworkError: true }
+    )
+
+    cy.visit('http://localhost:3000')
+
+    cy.contains(errMsg).should('be.visible')
+  })
+})

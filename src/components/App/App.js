@@ -1,18 +1,23 @@
 import './App.css'
-//import movieData from '../../movieData';
 import fetchData from '../../apiCalls'
 import React, { Component } from 'react'
 import MoviesContainer from '../Movies_Container/Movies_Container'
 import './App.css'
 import img from '../../Neatflix_Logos/2.png'
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
+import Poster from '../Poster/Poster'
+import '../Movies_Container/Movies_Container.css'
+import '../Poster/Poster.css'
+import MovieDetail from '../Movie_Detail/Movie_Detail'
+import '../Movie_Detail/Movie_Detail.css'
+
 
 class App extends Component {
   constructor() {
-    super();
+    super()
     this.state = {
       allMovies: [],
-      error: ''
+      error: null
     }
   }
 
@@ -28,17 +33,37 @@ class App extends Component {
         <header>
           <img src={img} alt="neatflix logo" className='neatflix-logo'></img>
         </header>
-        {this.state.error && <h2>Something went wrong! {this.state.error.message}</h2>}
-        <Route exact path="/" render={() => <MoviesContainer className='movies-contaier' movies={this.state.allMovies}/>} />
-        <Route exact path="/:id" 
-        
-        />
+        <Switch>
+          <Route
+            exact path="/"
+            render={() => {
+              if (this.state.error) {
+                return (
+                  <h1>There are no movies to show!</h1>
+                )
+              }
+              return (
+                <MoviesContainer
+                  movies={this.state.allMovies}
+                  selectMovie={this.selectMovie}
+                />
+              )
+            }}
+          />
+          <Route
+            path="/:id"
+            render={({ match }) => {
+              return (
+                <MovieDetail
+                  id={match.params.id}
+                />
+              )
+            }}
+          />
+        </Switch>
       </main>
     )
   }
-
-
 }
-
 
 export default App
