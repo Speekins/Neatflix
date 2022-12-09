@@ -1,8 +1,8 @@
 import React from "react"
 import './Movie_Detail.css'
 
-const MovieDetail = ({ movie, videos, exitMovie }) => {
-
+const MovieDetail = ({ movie, videos, clearMovie }) => {
+console.log('movie: ', movie);
   const background = { backgroundImage: `url(${movie.backdrop_path})` }
 
   const trailer = (videos) => {
@@ -28,7 +28,7 @@ const MovieDetail = ({ movie, videos, exitMovie }) => {
         {!!videos.length && 
         <p>Watch the <a href={trailer(videos)} target="_blank" rel="noreferrer">trailer</a>!</p>
         }
-        <button onClick={() => exitMovie()}>Return</button>
+        <button onClick={() => clearMovie()}>Return</button>
       </div>
     </div>
   )

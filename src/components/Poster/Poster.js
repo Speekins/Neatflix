@@ -1,16 +1,19 @@
 import React from "react"
 import './Poster.css'
+import { Link } from "react-router-dom"
 
-const Poster = ({ title, poster, id, showMovie }) => {
+const Poster = ({ title, poster, id, selectMovie }) => {
   return (
-    <div id={id} className='poster-container'>
-      <img 
-        className='poster'
-        onClick={(event) => showMovie(event)}
-        src={poster}
-      />
-      <p onClick={(event) => showMovie(event)} className='poster-title'>{title}</p>
-    </div>
+    <Link to={`/${id}`}>
+      <div id={id} className='poster-container'>
+        <img 
+          className='poster'
+          onClick={(event) => selectMovie(event)}
+          src={poster}
+        />
+        <p onClick={(event) => selectMovie(event)} className='poster-title'>{title}</p>
+      </div>
+    </Link>
   )
 }
 
