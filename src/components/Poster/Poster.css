@@ -1,4 +1,4 @@
-.poster-container {
+/* .poster-container {
   width: 275px;
   height: 475px;
   margin-top: 10px;
@@ -6,11 +6,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
+} */
 
 .poster {
   width: 275px;
   height: 412.5px;
+  margin-top: 10px;
 }
 
 .poster-title {
