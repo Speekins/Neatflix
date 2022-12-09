@@ -10,6 +10,7 @@ import Poster from '../Poster/Poster';
 import '../Movies_Container/Movies_Container.css'
 import '../Poster/Poster.css'
 import MovieDetail from '../Movie_Detail/Movie_Detail';
+import '../Movie_Detail/Movie_Detail.css'
 
 
 class App extends Component {
@@ -17,8 +18,8 @@ class App extends Component {
     super();
     this.state = {
       allMovies: [],
-      selectedMovie: null,
-      selectedMovieVideos: null,
+      // selectedMovie: '',
+      // selectedMovieVideos: '',
       error: null
     }
   }
@@ -29,23 +30,23 @@ class App extends Component {
     .catch(error => this.setState({ error: error}))
   }
 
-  selectMovie = (event) => {
-    let id = +event.target.parentNode.id
+  // selectMovie = (event) => {
+  //   let id = +event.target.id
 
-    Promise.all([
-      fetchData(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`),
-      fetchData(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}/videos`)
-    ])
-      .then(data => {
-        console.log('PING');
-        this.setState({ selectedMovie: data[0].movie, selectedMovieVideos: data[1].videos })
-      })
-      .catch(error => this.setState({ error: error }))
-  }
+  //   Promise.all([
+  //     fetchData(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`),
+  //     fetchData(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}/videos`)
+  //   ])
+  //     .then(data => {
+  //       console.log('PING');
+  //       this.setState({ selectedMovie: data[0].movie, selectedMovieVideos: data[1].videos })
+  //     })
+  //     .catch(error => this.setState({ error: error }))
+  // }
 
-  clearMovie = () => {
-    this.setState({ selectedMovie: '', selectedMovieVideos: '' })
-  }
+  // clearMovie = () => {
+  //   this.setState({ selectedMovie: '', selectedMovieVideos: '' })
+  // }
 
 
 
@@ -57,25 +58,23 @@ class App extends Component {
         </header>
         <Switch>
           <Route  
-            exact path='/' 
+            exact path="/" 
             render={() => {
-              return(
-                <MoviesContainer 
+              return (<MoviesContainer 
                   movies={this.state.allMovies}
                   selectMovie={this.selectMovie}
-                />
-              )
+                />)
             }} 
           />
           <Route 
-            path='/:id'
+            path="/:id"
             render={({match}) => {
               console.log('match: ', match);
               return(
                 <MovieDetail 
-                  movie={this.state.selectedMovie}
-                  videos={this.state.selectedMovieVideos}
-                  clearMovie={this.clearMovie}
+                  // movie={this.state.selectedMovie}
+                  // videos={this.state.selectedMovieVideos}
+                  // clearMovie={this.clearMovie}
                   id={match.params.id}
                 />
               )
