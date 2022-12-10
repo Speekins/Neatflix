@@ -52,6 +52,48 @@ describe('All movies container flows', () => {
     cy.get('.content').contains('Rogue')
   })
 
+  it('Should search for a movie by title', () => {
+    cy.get('.movie-search')
+    .type('Mu')
+
+    cy.get('.content').contains('Mulan')
+    cy.get('#337401')
+      .find('img')
+      .should('have.attr', 'src')
+      .should('include', 'https://image.tmdb.org/t/p/original//aKx1ARwG55zZ0GpRvU2WrGrCG9o.jpg')
+  })
+
+  it('Should not show movies that do not meet search criteria', () => {
+    cy.get('.movie-search')
+    .type('Mu')
+
+    cy.contains('Rogue').should('not.exist')
+  })
+
+  it('Should be able to delete search term from search bar', () => {
+    cy.get('.movie-search')
+    .type('Mu')
+
+    cy.contains('Rogue').should('not.exist')
+
+    cy.get('.movie-search')
+    .type('{backspace}')
+    .type('{backspace}')
+
+    cy.contains('Rogue').should('exist')
+  })
+
+  it('Should not have a value in search bar after deleting values', () => {
+    cy.get('.movie-search')
+    .type('Mu')
+
+    cy.get('.movie-search')
+    .type('{backspace}')
+    .type('{backspace}')
+
+    cy.get('.movie-search').should('not.have.value')
+  })
+
 })
 
 describe('Errors', () => {
