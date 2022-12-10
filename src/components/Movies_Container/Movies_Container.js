@@ -13,7 +13,7 @@ const MoviesContainer = ({movies, selectMovie}) => {
           title={movie.title}
           poster={movie.poster_path}
           id={movie.id}
-          selectMovie={selectMovie}
+          //selectMovie={selectMovie}
           key={movie.id}
         />
       });
