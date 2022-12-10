@@ -10,13 +10,15 @@ import '../Movies_Container/Movies_Container.css'
 import '../Poster/Poster.css'
 import MovieDetail from '../Movie_Detail/Movie_Detail'
 import '../Movie_Detail/Movie_Detail.css'
+import Search from '../Search/Search'
 
 
 class App extends Component {
   constructor() {
-    super();
+    super()
     this.state = {
       allMovies: [],
+      searchResults: null,
       error: null
     }
   }
@@ -25,6 +27,15 @@ class App extends Component {
     fetchData('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
       .then((data) => this.setState({ allMovies: data.movies }))
       .catch(error => this.setState({ error: error }))
+  }
+
+  updateSearchResult = (searchTerm) => {
+    if (!searchTerm) {
+      this.setState({ searchResults: null })
+    } else {
+      const searchedMovies = this.state.allMovies.filter(movie => movie.title.toLowerCase().includes(searchTerm.toLowerCase()))
+      this.setState({ searchResults: searchedMovies })
+    }
   }
 
   render() {
@@ -43,10 +54,13 @@ class App extends Component {
                 )
               }
               return (
-                <MoviesContainer
-                  movies={this.state.allMovies}
-                  selectMovie={this.selectMovie}
-                />
+                <>
+                  <Search updateSearchResult={this.updateSearchResult} />
+                  <MoviesContainer
+                    movies={this.state.searchResults === null ? this.state.allMovies : this.state.searchResults}
+                    selectMovie={this.selectMovie}
+                  />
+                </>
               )
             }}
           />
