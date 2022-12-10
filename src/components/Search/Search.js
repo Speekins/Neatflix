@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './Search.css'
 
 class Search extends Component {
   constructor() {
@@ -10,16 +11,19 @@ class Search extends Component {
 
   handleChange(e) {
     this.setState({ searchTerm: e.target.value })
-    if(e.target.value === '') {
-      this.props.updateSearchResult()
-    }
-    this.props.updateSearchResult(this.state.searchTerm)
+    this.props.updateSearchResult(e.target.value)
   }
 
   render() {
     return (
       <>
-        <input id="search" value={this.state.searchTerm} onChange={(event) => this.handleChange(event)} placeholder='Search'></input>
+        <input
+          id="search"
+          className='movie-search'
+          value={this.state.searchTerm}
+          onChange={(event) => this.handleChange(event)}
+          placeholder='Search'>
+        </input>
       </>
     )
   }

@@ -27,7 +27,6 @@ class MovieDetail extends Component {
       .catch(error => this.setState({ error: error }))
   }
 
-
   render() {
     const videos = this.state.selectedMovieVideos
     const movie = this.state.selectedMovie

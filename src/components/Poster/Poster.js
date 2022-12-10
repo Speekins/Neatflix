@@ -2,7 +2,7 @@ import React from "react"
 import './Poster.css'
 import { Link } from "react-router-dom"
 
-const Poster = ({ title, poster, id, selectMovie }) => {
+const Poster = ({ title, poster, id }) => {
   return (
     <div id={id}>
       <Link to={`/${id}`}>

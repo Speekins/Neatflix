@@ -1,17 +1,15 @@
-import './App.css'
-import fetchData from '../../apiCalls'
 import React, { Component } from 'react'
-import MoviesContainer from '../Movies_Container/Movies_Container'
-import './App.css'
-import img from '../../Neatflix_Logos/2.png'
 import { Route, Switch } from 'react-router-dom'
-import Poster from '../Poster/Poster'
-import '../Movies_Container/Movies_Container.css'
-import '../Poster/Poster.css'
-import MovieDetail from '../Movie_Detail/Movie_Detail'
-import '../Movie_Detail/Movie_Detail.css'
+import MoviesContainer from '../Movies_Container/Movies_Container'
 import Search from '../Search/Search'
-
+import MovieDetail from '../Movie_Detail/Movie_Detail'
+import fetchData from '../../apiCalls'
+import './App.css'
+import '../Movies_Container/Movies_Container.css'
+import '../Movie_Detail/Movie_Detail.css'
+import '../Search/Search.css'
+import '../Poster/Poster.css'
+import img from '../../Neatflix_Logos/2.png'
 
 class App extends Component {
   constructor() {
@@ -55,7 +53,7 @@ class App extends Component {
               }
               return (
                 <>
-                  <Search updateSearchResult={this.updateSearchResult} />
+                  <Search updateSearchResult={this.updateSearchResult} className="movie-search"/>
                   <MoviesContainer
                     movies={this.state.searchResults === null ? this.state.allMovies : this.state.searchResults}
                     selectMovie={this.selectMovie}
