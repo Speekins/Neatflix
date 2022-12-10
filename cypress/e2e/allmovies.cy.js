@@ -24,6 +24,13 @@ describe('All movies container flows', () => {
     cy.get('#718444').click()
   })
 
+  it('Should re-direct URL path after clicking a poster', () => {
+    const id = '694919'
+    cy.get(`#${id}`).click()
+    cy.url().should('include', `/${id}`)
+    cy.url().should('eq', `http://localhost:3000/${id}`)
+  })
+
   it('Should contain 3 posters with background images', () => {
     cy.get('#694919')
       .find('img')
@@ -59,6 +66,6 @@ describe('Errors', () => {
 
     cy.visit('http://localhost:3000')
 
-    cy.contains(errMsg).should('be.visible');
+    cy.contains(errMsg).should('be.visible')
   })
 })
