@@ -60,33 +60,51 @@ describe('Specific Movie Detail', () => {
 
   it('Should have a button that takes you back to the main view', () => {
     cy.get('button')
-      // .click()
-      // can have a test here that shows that, once we've employed Router, the url is the main view
+      .click()
+      .url().should('eq', 'http://localhost:3000/')
   });
 
 })
 
 describe('Error Handling Movie Detail Page', () => {
 
-  beforeEach(() => {
+  it('Should show a 400 level error message if something goes wrong with the fetch call to get specific movie data', () => {
     cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
       method: 'GET',
       fixture: '../fixtures/movies-sample-data.json'
     });
     cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', {
-      method: 'GET',
-      fixture: ''
+      statusCode: 400
     });
     cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919/videos', {
-      method: 'GET',
-      fixture: ''
+      statusCode: 400
     });
     cy.visit('http://localhost:3000');
     cy.get('#694919')
       .click()
+    
+    cy.contains('Something went wrong')
+    cy.contains('level 400 error')
   })
 
-  it('Should show an error message if something goes wrong with the fetch call to get specific movie data', () => {
-    cy.contains('Something went wrong!')
+  it('Should show a 500 level error message if something goes wrong with the fetch call to get specific movie data', () => {
+    cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
+      method: 'GET',
+      fixture: '../fixtures/movies-sample-data.json'
+    });
+    cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', {
+      statusCode: 500
+    });
+    cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919/videos', {
+      statusCode: 500
+    });
+    cy.visit('http://localhost:3000');
+    cy.get('#694919')
+      .click()
+    
+    cy.contains('Something went wrong')
+    cy.contains('level 500 error')
   })
+
+
 })
