@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import './Movie_Detail.css'
 import { Link } from "react-router-dom"
 import fetchData from "../../apiCalls"
+import PropTypes from 'prop-types'
 
 class MovieDetail extends Component {
   constructor() {
@@ -39,7 +40,6 @@ class MovieDetail extends Component {
       }
     }
 
-
     return (
       <>
         {this.state.error && <h2>Something went wrong...({this.state.error.message})</h2>}
@@ -67,6 +67,10 @@ class MovieDetail extends Component {
       </>
     )
   }
+}
+
+MovieDetail.propTypes = {
+  id: PropTypes.string.isRequired
 }
 
 export default MovieDetail
