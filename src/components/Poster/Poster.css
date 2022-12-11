@@ -12,6 +12,12 @@
   width: 275px;
   height: 412.5px;
   margin-top: 10px;
+  transition-duration: 400ms;
+}
+
+.poster:hover {
+  transform: translateY(-.5em);
+  box-shadow: 0 0 45px rgb(246, 238, 177);
 }
 
 .poster-title {
