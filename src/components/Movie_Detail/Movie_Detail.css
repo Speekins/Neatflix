@@ -13,7 +13,8 @@
 
 .poster-detail {
   height: 600px;
-  width: auto
+  width: auto;
+  box-shadow: 0px 1px 19px 5px #07070796;
 }
 
 .details {
@@ -21,18 +22,18 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 30%;
+  width: 40%;
   height: auto;
   padding: 20px;
   color: white;
-  background-color: rgb(0, 0, 0, 0.7);
+  background-color: rgba(19, 18, 18, 0.701);
   font-size: 20px;
   border-radius: 10px;
 }
 
 button {
-  width: 40%;
-  height: 12%;
+  width: 95px;
+  height: 35px;
   font-size: 20px;
   border: 1px solid transparent;
   border-radius: 5px;
@@ -46,4 +47,19 @@ button:hover {
   color: #C2A031;
   transform: translateY(-.2em);
   cursor: pointer;
+}
+
+.movie-title {
+  text-align: center;
+}
+
+.tagline {
+  font-size: 1.3em;
+  margin-top: -10px;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.overview {
+  text-align: center;
 }
