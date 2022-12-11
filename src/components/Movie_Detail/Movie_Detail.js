@@ -21,7 +21,6 @@ class MovieDetail extends Component {
       fetchData(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}/videos`)
     ])
       .then(data => {
-        console.log('data: ', data)
         this.setState({ selectedMovie: data[0].movie, selectedMovieVideos: data[1].videos })
       })
       .catch(error => this.setState({ error: error }))

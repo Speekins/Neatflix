@@ -56,7 +56,6 @@ class App extends Component {
                   <Search updateSearchResult={this.updateSearchResult} className="movie-search"/>
                   <MoviesContainer
                     movies={this.state.searchResults === null ? this.state.allMovies : this.state.searchResults}
-                    selectMovie={this.selectMovie}
                   />
                 </>
               )
