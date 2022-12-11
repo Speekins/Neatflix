@@ -9,7 +9,7 @@ class MovieDetail extends Component {
     this.state = {
       selectedMovie: '',
       selectedMovieVideos: '',
-      error: null
+      error: ''
     }
   }
 
@@ -41,26 +41,30 @@ class MovieDetail extends Component {
 
 
     return (
-      <div className="movie-detail" style={background}>
-        <img src={movie.poster_path} alt={`poster for ${movie.title}`} className='poster-detail'></img>
-        <div className="details">
-          {!!movie.title && <h1>{movie.title}</h1>}
-          {!!movie.tagline && <p>{movie.tagline}</p>}
-          {!!movie.average_rating && <p>Rating: {movie.average_rating}</p>}
-          {!!movie.release_date && <p>Release Date: {movie.release_date}</p>}
-          {!!movie.budget && <p>Budget: {movie.budget}</p>}
-          {!!movie.revenue && <p>Revenue: {movie.revenue}</p>}
-          {!!movie.runtime && <p>Runtime: {movie.runtime} minutes</p>}
-          {!!movie.overview && <p>Overview: {movie.overview}</p>}
-          {!!videos.length &&
-            <p>Watch the <a href={trailer(videos)} target="_blank" rel="noreferrer">trailer</a>!</p>
-          }
-          <Link to={"/"}>
-            <button>Return</button>
-          </Link>
-        </div>
-      </div>
-
+      <>
+        {this.state.error && <h2>Something went wrong...({this.state.error.message})</h2>}
+        {!this.state.error &&
+          <div className="movie-detail" style={background}>
+            <img src={movie.poster_path} alt={`poster for ${movie.title}`} className='poster-detail'></img>
+            <div className="details">
+              {!!movie.title && <h1>{movie.title}</h1>}
+              {!!movie.tagline && <p>{movie.tagline}</p>}
+              {!!movie.average_rating && <p>Rating: {movie.average_rating}</p>}
+              {!!movie.release_date && <p>Release Date: {movie.release_date}</p>}
+              {!!movie.budget && <p>Budget: {movie.budget}</p>}
+              {!!movie.revenue && <p>Revenue: {movie.revenue}</p>}
+              {!!movie.runtime && <p>Runtime: {movie.runtime} minutes</p>}
+              {!!movie.overview && <p>Overview: {movie.overview}</p>}
+              {!!videos.length &&
+                <p>Watch the <a href={trailer(videos)} target="_blank" rel="noreferrer">trailer</a>!</p>
+              }
+              <Link to={"/"}>
+                <button>Return</button>
+              </Link>
+            </div>
+          </div>
+        }
+      </>
     )
   }
 }
