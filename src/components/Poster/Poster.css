@@ -1,12 +1,12 @@
-/* .poster-container {
-  width: 275px;
+.poster-container {
+  width: 295px;
   height: 475px;
   margin-top: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-} */
+}
 
 .poster {
   width: 275px;
@@ -18,5 +18,6 @@
   font-size: 20px;
   color: white;
   font-weight: 400;
+  text-align: center;
 }
 

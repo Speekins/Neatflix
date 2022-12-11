@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 
 const Poster = ({ title, poster, id }) => {
   return (
-    <div id={id}>
+    <div className="poster-container" id={id}>
       <Link to={`/${id}`}>
         <img
           className='poster'
@@ -12,7 +12,7 @@ const Poster = ({ title, poster, id }) => {
           alt={`Movie poster for ${title}`}
         />
       </Link>
-      <p>{title}</p>
+      <p className="poster-title">{title}</p>
     </div>
   )
 }
