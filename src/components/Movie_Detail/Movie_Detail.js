@@ -3,6 +3,7 @@ import './Movie_Detail.css'
 import { Link } from "react-router-dom"
 import fetchData from "../../apiCalls"
 import PropTypes from 'prop-types'
+import formatCurrency from "../../utilities"
 
 class MovieDetail extends Component {
   constructor() {
@@ -22,6 +23,7 @@ class MovieDetail extends Component {
       fetchData(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}/videos`)
     ])
       .then(data => {
+        formatCurrency(data[0].movie)
         this.setState({ selectedMovie: data[0].movie, selectedMovieVideos: data[1].videos })
       })
       .catch(error => this.setState({ error: error }))
