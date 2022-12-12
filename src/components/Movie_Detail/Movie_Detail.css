@@ -39,13 +39,13 @@ button {
   border-radius: 5px;
   color: white;
   background-color: rgb(167, 20, 28);
-  transition-duration: 400ms;
+  transition-duration: 300ms;
 }
 
 button:hover {
-  border: 1px solid #C2A031;
-  color: #C2A031;
-  transform: translateY(-.2em);
+  box-shadow: 0 0 10px rgb(246, 238, 177);
+  color: rgb(249, 245, 213);
+  transform: translateY(-.15em);
   cursor: pointer;
 }
 

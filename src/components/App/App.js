@@ -36,6 +36,15 @@ class App extends Component {
     }
   }
 
+  resetSearch = () => {
+    this.setState(this.state.searchResults = null)
+  }
+
+  exactMatch(id) {
+    let match = this.state.allMovies.find(movie => movie.id === Number(id))
+    return match
+  }
+
   render() {
     return (
       <main className='content'>
@@ -48,7 +57,7 @@ class App extends Component {
             render={() => {
               if (this.state.error) {
                 return (
-                  <h1 className='warning'>There are no movies to show!</h1>
+                  <h1 className='warning'>There are no movies to show... {this.state.error.message}</h1>
                 )
               }
               return (
@@ -62,10 +71,16 @@ class App extends Component {
             }}
           />
           <Route
-            path="/:id"
+            exact path="/:id"
             render={({ match }) => {
+              if (!this.exactMatch(match.params.id)) {
+                return (
+                  <h1 className='warning'>Sorry, that link does not work!</h1>
+                )
+              }
               return (
                 <MovieDetail
+                  resetSearch={this.resetSearch}
                   id={match.params.id}
                 />
               )

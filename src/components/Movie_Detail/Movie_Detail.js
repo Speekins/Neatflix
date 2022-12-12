@@ -16,7 +16,7 @@ class MovieDetail extends Component {
 
   componentDidMount() {
     const id = +this.props.id
-
+    this.props.resetSearch()
     Promise.all([
       fetchData(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`),
       fetchData(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}/videos`)
@@ -42,7 +42,7 @@ class MovieDetail extends Component {
 
     return (
       <>
-        {this.state.error && <h2>Something went wrong...({this.state.error.message})</h2>}
+        {this.state.error && <h1 className="warning">Something went wrong...({this.state.error.message})</h1>}
         {!this.state.error &&
           <div className="movie-detail" style={background}>
             <img src={movie.poster_path} alt={`poster for ${movie.title}`} className='poster-detail'></img>
