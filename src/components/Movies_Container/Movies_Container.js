@@ -24,8 +24,11 @@ const MoviesContainer = ({ movies }) => {
 
 }
 
-export default MoviesContainer
+
+export default MoviesContainer;
+
 
 MoviesContainer.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.object).isRequired
 }
+

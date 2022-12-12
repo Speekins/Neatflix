@@ -1,70 +1,74 @@
-# Getting Started with Create React App
+# Neatflix Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Main Movies Page
+![allmovies](https://user-images.githubusercontent.com/74210902/207123100-00d3d537-9555-4c4f-a903-8e6d8b9a43e6.gif)
 
-## Available Scripts
+### Movie Details
+![movie-detail2](https://user-images.githubusercontent.com/74210902/207125035-9cc0c133-f01b-4c3f-9177-8161c1b91622.gif)
 
-In the project directory, you can run:
+### Abstract
+Neatflix is a movie review web application that pulls in data from a movie API and displays the results to the user. The target user ranges from cinephile to casual movie watcher wanting to find a movie to watch based on its ratings and reviews. The user flow first shows all movies on the main page, where the user may search for a specific title. Once that title is found, the movie poster can be clicked on to view more details (depending on source data) about the film, including rating, budget, release date, and the option to view the trailer.
 
-### `npm start`
+This paired project was created as the first `React` project in the third module (of four) of the Turing front-end software engineering program. This project is the culmination of gained experience and knowledge listed under the `Technologies` heading below.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Contributors
+[Spencer Haka](https://github.com/Speekins)<br>
+[Brett Kuhn](https://github.com/bkuhn2)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Research and Documentation 
+Developed Design:
+![image](https://user-images.githubusercontent.com/74210902/207098215-b69a800f-e948-49d6-9486-5dc8f714ca4e.png)
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Miro Board Logic Flow:
+First Draft
+![image](https://user-images.githubusercontent.com/74210902/207098450-21590fb0-d428-4c59-8b74-a2ca97ea827d.png)
 
-### `npm run build`
+Agile/Scrum project board created and managed via GitHub Projects:
+![image](https://user-images.githubusercontent.com/74210902/207098755-24a8ab4c-3a94-461d-b181-6fbcdafe7eb6.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Reflection
+- Wins
+  - Successfully using React to create our first application
+  - Using Router to make a dynamic webpage that re-directs the URL path
+  - Learning to effectively implement Cypress to test all user views
+- Challenges
+  - Error handling for bad URL paths
+  - Refactoring the project for implementing Router gave us some hang-ups
+  - Know what to test using Cypress, and how to test asynchronous events
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Learning Goals
+- Gain competency with React fundamentals
+- Learn how to test React components & asynchronous JS
+- Practice refactoring
+- Create a multi-page UX using Router
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Technologies
+- React
+- React Router
+- Cypress Testing Framework
+- CSS
+- HTML
+- Fetch API 
+- Git/GitHub
+- GitHub project board
+- Miro flowchart
+- Excalidraw
 
-### `npm run eject`
+### Methodologies
+- Effectively implement React/React Router to create an interactive web application
+- Thoughfully structure React components
+- User story acceptance testing
+- Error handling
+- Use Fetch API to make network requests to retrieve data
+- Create a user interface that is easy to use and clearly displays information
+- Write modular, reusable code that follows SRP (Single Responsibility Principle)
+- Implement acceptance criteria testing to ensure consistent user experience
+- Demonstrate DRY principles 
+- Utilize Agile/Scrum project management 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Installation Instructions
+1. Fork this repository.
+2. Clone your new, forked repository to your local machine.
+3. `cd` into the API repository on your local machine and run `npm install`, then `npm start` to launch the application.
+4. The application will automatically load and be visiible in your web browser.
