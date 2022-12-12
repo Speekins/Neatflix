@@ -51,10 +51,17 @@ describe('All movies container flows', () => {
     cy.get('.content').contains('Mulan')
     cy.get('.content').contains('Rogue')
   })
+})
+
+describe('Movie Search', () => {
+
+  beforeEach(() => {
+    cy.mainPage()
+  })
 
   it('Should search for a movie by title', () => {
     cy.get('.movie-search')
-    .type('Mu')
+      .type('Mu')
 
     cy.get('.content').contains('Mulan')
     cy.get('#337401')
@@ -65,35 +72,41 @@ describe('All movies container flows', () => {
 
   it('Should not show movies that do not meet search criteria', () => {
     cy.get('.movie-search')
-    .type('Mu')
+      .type('Mu')
 
     cy.contains('Rogue').should('not.exist')
   })
 
   it('Should be able to delete search term from search bar', () => {
     cy.get('.movie-search')
-    .type('Mu')
+      .type('Mu')
 
     cy.contains('Rogue').should('not.exist')
 
     cy.get('.movie-search')
-    .type('{backspace}')
-    .type('{backspace}')
+      .type('{backspace}')
+      .type('{backspace}')
 
     cy.contains('Rogue').should('exist')
   })
 
   it('Should not have a value in search bar after deleting values', () => {
     cy.get('.movie-search')
-    .type('Mu')
+      .type('Mu')
 
     cy.get('.movie-search')
-    .type('{backspace}')
-    .type('{backspace}')
+      .type('{backspace}')
+      .type('{backspace}')
 
     cy.get('.movie-search').should('not.have.value')
   })
 
+  it('Should warn user when searched term returns no results', () => {
+    cy.get('.movie-search')
+      .type('JavaScript')
+
+    cy.get('.content').contains('There are no search results to show')
+  })
 })
 
 describe('Errors', () => {

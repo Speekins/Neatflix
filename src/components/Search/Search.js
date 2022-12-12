@@ -16,7 +16,6 @@ class Search extends Component {
 
   render() {
     return (
-      <>
         <input
           id="search"
           className='movie-search'
@@ -24,7 +23,6 @@ class Search extends Component {
           onChange={(event) => this.handleChange(event)}
           placeholder='Search'>
         </input>
-      </>
     )
   }
 }
