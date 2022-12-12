@@ -25,6 +25,21 @@ First Draft
 Agile/Scrum project board created and managed via GitHub Projects:
 ![image](https://user-images.githubusercontent.com/74210902/207098755-24a8ab4c-3a94-461d-b181-6fbcdafe7eb6.png)
 
+### Reflection
+- Wins
+  - Successfully using React to create our first application
+  - Using Router to make a dynamic webpage that re-directs the URL path
+  - Learning to effectively implement Cypress to test all user views
+- Challenges
+  - Error handling for bad URL paths
+  - Refactoring the project for implementing Router gave us some hang-ups
+  - Know what to test using Cypress, and how to test asynchronous events
+
+### Learning Goals
+- Gain competency with React fundamentals
+- Learn how to test React components & asynchronous JS
+- Practice refactoring
+- Create a multi-page UX using Router
 
 ### Technologies
 - React
