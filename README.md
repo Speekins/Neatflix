@@ -19,7 +19,6 @@ Developed Design:
 Miro Board Logic Flow:
 
 Agile/Scrum project board created and managed via GitHub Projects:
-<img width="1415" alt="image" src="https://user-images.githubusercontent.com/74210902/201999248-886a5cf0-25d8-43c4-a6a2-d01e09171e3b.png">
 
 
 ### Technologies
