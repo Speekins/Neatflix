@@ -3,7 +3,7 @@ import './Movie_Detail.css'
 import { Link } from "react-router-dom"
 import fetchData from "../../apiCalls"
 import PropTypes from 'prop-types'
-import formatCurrency from "../../utilities"
+import { formatCurrency, formatDate } from "../../utilities"
 
 class MovieDetail extends Component {
   constructor() {
@@ -24,6 +24,7 @@ class MovieDetail extends Component {
     ])
       .then(data => {
         formatCurrency(data[0].movie)
+        formatDate(data[0].movie)
         this.setState({ selectedMovie: data[0].movie, selectedMovieVideos: data[1].videos })
       })
       .catch(error => this.setState({ error: error }))
