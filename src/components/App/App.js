@@ -48,7 +48,7 @@ class App extends Component {
             render={() => {
               if (this.state.error) {
                 return (
-                  <h1>There are no movies to show... {this.state.error.message}</h1>
+                  <h1 className='warning'>There are no movies to show!</h1>
                 )
               }
               return (
