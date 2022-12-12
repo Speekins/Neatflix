@@ -4,9 +4,9 @@ function fetchData(url) {
     if (response.ok) {
       return response.json()
     } else if (response.status >= 500) {
-      throw new Error('The server\'s messed up!')
+      throw new Error('the server\'s messed up! level 500 error')
     } else if (response.status >= 400 && response.status < 500) {
-      throw new Error('This is a level 400 error')
+      throw new Error('this is a level 400 error')
     }
   })
 }

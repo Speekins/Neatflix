@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './Search.css'
+import PropTypes from 'prop-types';
 
 class Search extends Component {
   constructor() {
@@ -28,3 +29,7 @@ class Search extends Component {
 }
 
 export default Search
+
+Search.propTypes = {
+  updateSearchResult: PropTypes.func.isRequired
+}

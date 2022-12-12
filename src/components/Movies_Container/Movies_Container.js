@@ -1,6 +1,8 @@
 import React from "react"
 import Poster from "../Poster/Poster"
 import './Movies_Container.css'
+import PropTypes from 'prop-types';
+
 
 const MoviesContainer = ({ movies }) => {
   const moviePosters = movies
@@ -22,4 +24,10 @@ const MoviesContainer = ({ movies }) => {
 
 }
 
-export default MoviesContainer
+
+export default MoviesContainer;
+
+MoviesContainer.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired
+}
+

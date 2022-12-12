@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import './Movie_Detail.css'
 import { Link } from "react-router-dom"
 import fetchData from "../../apiCalls"
+import PropTypes from 'prop-types'
 
 class MovieDetail extends Component {
   constructor() {
@@ -9,7 +10,7 @@ class MovieDetail extends Component {
     this.state = {
       selectedMovie: '',
       selectedMovieVideos: '',
-      error: null
+      error: ''
     }
   }
 
@@ -21,7 +22,6 @@ class MovieDetail extends Component {
       fetchData(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}/videos`)
     ])
       .then(data => {
-        console.log('data: ', data)
         this.setState({ selectedMovie: data[0].movie, selectedMovieVideos: data[1].videos })
       })
       .catch(error => this.setState({ error: error }))
@@ -30,7 +30,7 @@ class MovieDetail extends Component {
   render() {
     const videos = this.state.selectedMovieVideos
     const movie = this.state.selectedMovie
-    const background = { backgroundImage: `url(${movie.backdrop_path})` }
+    const background = { backgroundImage: `linear-gradient(to bottom, rgba(54, 54, 54, 0.5), rgba(24, 24, 24, 0.67)), url(${movie.backdrop_path})` }
 
     const trailer = () => {
       if (videos[0].site === 'YouTube') {
@@ -40,30 +40,37 @@ class MovieDetail extends Component {
       }
     }
 
-
     return (
-      <div className="movie-detail" style={background}>
-        <img src={movie.poster_path} alt={`poster for ${movie.title}`} className='poster-detail'></img>
-        <div className="details">
-          {!!movie.title && <h1>{movie.title}</h1>}
-          {!!movie.tagline && <p>{movie.tagline}</p>}
-          {!!movie.average_rating && <p>Rating: {movie.average_rating}</p>}
-          {!!movie.release_date && <p>Release Date: {movie.release_date}</p>}
-          {!!movie.budget && <p>Budget: {movie.budget}</p>}
-          {!!movie.revenue && <p>Revenue: {movie.revenue}</p>}
-          {!!movie.runtime && <p>Runtime: {movie.runtime} minutes</p>}
-          {!!movie.overview && <p>Overview: {movie.overview}</p>}
-          {!!videos.length &&
-            <p>Watch the <a href={trailer(videos)} target="_blank" rel="noreferrer">trailer</a>!</p>
-          }
-          <Link to={"/"}>
-            <button>Return</button>
-          </Link>
-        </div>
-      </div>
-
+      <>
+        {this.state.error && <h2>Something went wrong...({this.state.error.message})</h2>}
+        {!this.state.error &&
+          <div className="movie-detail" style={background}>
+            <img src={movie.poster_path} alt={`poster for ${movie.title}`} className='poster-detail'></img>
+            <div className="details">
+              {!!movie.title && <h1 className="movie-title">{movie.title}</h1>}
+              {!!movie.tagline && <p className="tagline">{movie.tagline}</p>}
+              {!!movie.average_rating && <p>Rating: {movie.average_rating}</p>}
+              {!!movie.release_date && <p>Release Date: {movie.release_date}</p>}
+              {!!movie.budget && <p>Budget: {movie.budget}</p>}
+              {!!movie.revenue && <p>Revenue: {movie.revenue}</p>}
+              {!!movie.runtime && <p>Runtime: {movie.runtime} minutes</p>}
+              {!!movie.overview && <p className="overview">Overview: {movie.overview}</p>}
+              {!!videos.length &&
+                <p>Watch the <a href={trailer(videos)} target="_blank" rel="noreferrer">trailer</a>!</p>
+              }
+              <Link to={"/"}>
+                <button>Return</button>
+              </Link>
+            </div>
+          </div>
+        }
+      </>
     )
   }
+}
+
+MovieDetail.propTypes = {
+  id: PropTypes.string.isRequired
 }
 
 export default MovieDetail
