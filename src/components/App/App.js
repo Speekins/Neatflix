@@ -10,6 +10,8 @@ import '../Movie_Detail/Movie_Detail.css'
 import '../Search/Search.css'
 import '../Poster/Poster.css'
 import img from '../../Neatflix_Logos/2.png'
+import { Link } from 'react-router-dom'
+import { Redirect } from 'react-router-dom/cjs/react-router-dom.min'
 
 class App extends Component {
   constructor() {
@@ -75,7 +77,12 @@ class App extends Component {
             render={({ match }) => {
               if (!this.exactMatch(match.params.id)) {
                 return (
-                  <h1 className='warning'>Sorry, that link does not work!</h1>
+                  <>
+                    <h1 className='warning'>Sorry, that link does not work!</h1>
+                    <Link to={"/"}>
+                      <button>Home</button>
+                    </Link>
+                  </>
                 )
               }
               return (
@@ -86,6 +93,7 @@ class App extends Component {
               )
             }}
           />
+          <Redirect to='/' />
         </Switch>
       </main>
     )

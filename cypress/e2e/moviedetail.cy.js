@@ -32,7 +32,7 @@ describe('Specific Movie Detail', () => {
   });
 
   it('Should show the release date', () => {
-    cy.contains('Release Date: 2020-09-29')
+    cy.contains('Release Date: September 29, 2020')
   });
 
   it('Should show the runtime', () => {
@@ -49,7 +49,7 @@ describe('Specific Movie Detail', () => {
 
   it('The background should be an image from the movie', () => {
     cy.get('.movie-detail')
-    .should('have.css', 'background-image', 'url("https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg")')
+    .should('have.css', 'background-image', 'linear-gradient(rgba(54, 54, 54, 0.5), rgba(24, 24, 24, 0.67)), url("https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg")')
   });
 
   it('Should show the movie poster', () => {
