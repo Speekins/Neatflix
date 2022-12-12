@@ -1,8 +1,10 @@
 # Neatflix Application
 
 ### Main Movies Page
+![allmovies](https://user-images.githubusercontent.com/74210902/207123100-00d3d537-9555-4c4f-a903-8e6d8b9a43e6.gif)
 
 ### Movie Details
+![movie-detail2](https://user-images.githubusercontent.com/74210902/207125035-9cc0c133-f01b-4c3f-9177-8161c1b91622.gif)
 
 ### Abstract
 Neatflix is a movie review web application that pulls in data from a movie API and displays the results to the user. The target user ranges from cinephile to casual movie watcher wanting to find a movie to watch based on its ratings and reviews. The user flow first shows all movies on the main page, where the user may search for a specific title. Once that title is found, the movie poster can be clicked on to view more details (depending on source data) about the film, including rating, budget, release date, and the option to view the trailer.
