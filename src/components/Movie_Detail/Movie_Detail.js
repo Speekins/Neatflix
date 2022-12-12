@@ -16,7 +16,7 @@ class MovieDetail extends Component {
 
   componentDidMount() {
     const id = +this.props.id
-
+    this.props.resetSearch()
     Promise.all([
       fetchData(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`),
       fetchData(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}/videos`)
