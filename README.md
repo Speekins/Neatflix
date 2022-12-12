@@ -10,7 +10,7 @@
 This paired project was created as the first `React` project in the third module (of four) of the Turing front-end software engineering program. This project is the culmination of gained experience and knowledge listed under the `Technologies` heading below.
 
 ### Contributors
-[Spencer Haka](https://github.com/Speekins)
+[Spencer Haka](https://github.com/Speekins)<br>
 [Brett Kuhn](https://github.com/bkuhn2)
 
 ### Research and Documentation 
